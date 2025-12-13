@@ -265,6 +265,30 @@
         "documentation": {}
     },
     {
+        "label": "add_book",
+        "importPath": "library_utils",
+        "description": "library_utils",
+        "isExtraImport": true,
+        "detail": "library_utils",
+        "documentation": {}
+    },
+    {
+        "label": "search_book",
+        "importPath": "library_utils",
+        "description": "library_utils",
+        "isExtraImport": true,
+        "detail": "library_utils",
+        "documentation": {}
+    },
+    {
+        "label": "list_books",
+        "importPath": "library_utils",
+        "description": "library_utils",
+        "isExtraImport": true,
+        "detail": "library_utils",
+        "documentation": {}
+    },
+    {
         "label": "random",
         "kind": 6,
         "isExtraImport": true,
@@ -3680,6 +3704,105 @@
         "description": "Serhii_Nikolaiev.assignment1",
         "peekOfCode": "CONSONANTS = [\n    'b', 'c', 'd', 'f', 'g', 'j', 'k', 'l', 'm', 'n', \n    'p', 'q', 's', 't', 'v', 'x', 'z', 'h', 'r', 'w', 'y'\n]\ndef main():\n    first_name = input(\"Enter your first name: \")\n    last_name = input(\"Enter your last name: \")\n    if len(first_name) == 0 or len(last_name) == 0:\n        print(\"Seriously?? \" \\\n        \"Do not waste computational power and time if you don't bother filling out first name and last name. \" \\",
         "detail": "Serhii_Nikolaiev.assignment1",
+        "documentation": {}
+    },
+    {
+        "label": "books",
+        "kind": 5,
+        "importPath": "YangliDeng.assignment2.assignment2",
+        "description": "YangliDeng.assignment2.assignment2",
+        "peekOfCode": "books = [\"Python 101\", \"Data Science\", \"Machine Learning\"]\n# Tuples (title, author, year)\nbook1 = (\"Python 101\", \"John Smith\", 2020)\nbook2 = (\"Data Science\", \"Alice Brown\", 2021)\nbook3 = (\"Machine Learning\", \"David Lee\", 2022)\n# Set of genres\ngenres = {\"Programming\", \"AI\", \"Math\"}\n# Dictionary (book_id : book_tuple)\nlibrary = {\n    1: book1,",
+        "detail": "YangliDeng.assignment2.assignment2",
+        "documentation": {}
+    },
+    {
+        "label": "book1",
+        "kind": 5,
+        "importPath": "YangliDeng.assignment2.assignment2",
+        "description": "YangliDeng.assignment2.assignment2",
+        "peekOfCode": "book1 = (\"Python 101\", \"John Smith\", 2020)\nbook2 = (\"Data Science\", \"Alice Brown\", 2021)\nbook3 = (\"Machine Learning\", \"David Lee\", 2022)\n# Set of genres\ngenres = {\"Programming\", \"AI\", \"Math\"}\n# Dictionary (book_id : book_tuple)\nlibrary = {\n    1: book1,\n    2: book2\n}",
+        "detail": "YangliDeng.assignment2.assignment2",
+        "documentation": {}
+    },
+    {
+        "label": "book2",
+        "kind": 5,
+        "importPath": "YangliDeng.assignment2.assignment2",
+        "description": "YangliDeng.assignment2.assignment2",
+        "peekOfCode": "book2 = (\"Data Science\", \"Alice Brown\", 2021)\nbook3 = (\"Machine Learning\", \"David Lee\", 2022)\n# Set of genres\ngenres = {\"Programming\", \"AI\", \"Math\"}\n# Dictionary (book_id : book_tuple)\nlibrary = {\n    1: book1,\n    2: book2\n}\n# Add a new book",
+        "detail": "YangliDeng.assignment2.assignment2",
+        "documentation": {}
+    },
+    {
+        "label": "book3",
+        "kind": 5,
+        "importPath": "YangliDeng.assignment2.assignment2",
+        "description": "YangliDeng.assignment2.assignment2",
+        "peekOfCode": "book3 = (\"Machine Learning\", \"David Lee\", 2022)\n# Set of genres\ngenres = {\"Programming\", \"AI\", \"Math\"}\n# Dictionary (book_id : book_tuple)\nlibrary = {\n    1: book1,\n    2: book2\n}\n# Add a new book\nadd_book(library, 3, book3)",
+        "detail": "YangliDeng.assignment2.assignment2",
+        "documentation": {}
+    },
+    {
+        "label": "genres",
+        "kind": 5,
+        "importPath": "YangliDeng.assignment2.assignment2",
+        "description": "YangliDeng.assignment2.assignment2",
+        "peekOfCode": "genres = {\"Programming\", \"AI\", \"Math\"}\n# Dictionary (book_id : book_tuple)\nlibrary = {\n    1: book1,\n    2: book2\n}\n# Add a new book\nadd_book(library, 3, book3)\n# List all books\nprint(\"All books in library:\")",
+        "detail": "YangliDeng.assignment2.assignment2",
+        "documentation": {}
+    },
+    {
+        "label": "library",
+        "kind": 5,
+        "importPath": "YangliDeng.assignment2.assignment2",
+        "description": "YangliDeng.assignment2.assignment2",
+        "peekOfCode": "library = {\n    1: book1,\n    2: book2\n}\n# Add a new book\nadd_book(library, 3, book3)\n# List all books\nprint(\"All books in library:\")\nlist_books(library)\n# Search for a book",
+        "detail": "YangliDeng.assignment2.assignment2",
+        "documentation": {}
+    },
+    {
+        "label": "result",
+        "kind": 5,
+        "importPath": "YangliDeng.assignment2.assignment2",
+        "description": "YangliDeng.assignment2.assignment2",
+        "peekOfCode": "result = search_book(library, \"Python 101\")\nprint(result)\n# Suggest a random book\nprint(\"\\nRandom book suggestion:\")\nrandom_book = random.choice(list(library.values()))\nprint(random_book)",
+        "detail": "YangliDeng.assignment2.assignment2",
+        "documentation": {}
+    },
+    {
+        "label": "random_book",
+        "kind": 5,
+        "importPath": "YangliDeng.assignment2.assignment2",
+        "description": "YangliDeng.assignment2.assignment2",
+        "peekOfCode": "random_book = random.choice(list(library.values()))\nprint(random_book)",
+        "detail": "YangliDeng.assignment2.assignment2",
+        "documentation": {}
+    },
+    {
+        "label": "add_book",
+        "kind": 2,
+        "importPath": "YangliDeng.assignment2.library_utils",
+        "description": "YangliDeng.assignment2.library_utils",
+        "peekOfCode": "def add_book(library, book_id, book):\n    library[book_id] = book\ndef search_book(library, title):\n    for book_id in library:\n        book = library[book_id]\n        if book[0] == title:\n            return book\n    return None\ndef list_books(library):\n    for book_id in library:",
+        "detail": "YangliDeng.assignment2.library_utils",
+        "documentation": {}
+    },
+    {
+        "label": "search_book",
+        "kind": 2,
+        "importPath": "YangliDeng.assignment2.library_utils",
+        "description": "YangliDeng.assignment2.library_utils",
+        "peekOfCode": "def search_book(library, title):\n    for book_id in library:\n        book = library[book_id]\n        if book[0] == title:\n            return book\n    return None\ndef list_books(library):\n    for book_id in library:\n        book = library[book_id]\n        print(book_id, \":\", book)",
+        "detail": "YangliDeng.assignment2.library_utils",
+        "documentation": {}
+    },
+    {
+        "label": "list_books",
+        "kind": 2,
+        "importPath": "YangliDeng.assignment2.library_utils",
+        "description": "YangliDeng.assignment2.library_utils",
+        "peekOfCode": "def list_books(library):\n    for book_id in library:\n        book = library[book_id]\n        print(book_id, \":\", book)",
+        "detail": "YangliDeng.assignment2.library_utils",
         "documentation": {}
     },
     {

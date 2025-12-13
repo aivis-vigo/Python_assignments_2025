@@ -62,6 +62,7 @@ Total number of letters (first + last name)
 Enter your first name: Shokoufeh
 Enter your last name: Salem
 
+
 Length of first name: 9
 Length of last name: 5
 Vowels in first name: 4
