@@ -419,6 +419,14 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "string",
         "kind": 6,
         "isExtraImport": true,
@@ -554,6 +562,46 @@
         "importPath": "requests",
         "description": "requests",
         "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "add_task",
+        "importPath": "task_utils",
+        "description": "task_utils",
+        "isExtraImport": true,
+        "detail": "task_utils",
+        "documentation": {}
+    },
+    {
+        "label": "read_tasks",
+        "importPath": "task_utils",
+        "description": "task_utils",
+        "isExtraImport": true,
+        "detail": "task_utils",
+        "documentation": {}
+    },
+    {
+        "label": "Fore",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Style",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "init",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
         "documentation": {}
     },
     {
@@ -3704,6 +3752,33 @@
         "description": "Serhii_Nikolaiev.assignment1",
         "peekOfCode": "CONSONANTS = [\n    'b', 'c', 'd', 'f', 'g', 'j', 'k', 'l', 'm', 'n', \n    'p', 'q', 's', 't', 'v', 'x', 'z', 'h', 'r', 'w', 'y'\n]\ndef main():\n    first_name = input(\"Enter your first name: \")\n    last_name = input(\"Enter your last name: \")\n    if len(first_name) == 0 or len(last_name) == 0:\n        print(\"Seriously?? \" \\\n        \"Do not waste computational power and time if you don't bother filling out first name and last name. \" \\",
         "detail": "Serhii_Nikolaiev.assignment1",
+        "documentation": {}
+    },
+    {
+        "label": "tasks",
+        "kind": 5,
+        "importPath": "YangliDeng.assignment 3.assignment3",
+        "description": "YangliDeng.assignment 3.assignment3",
+        "peekOfCode": "tasks = read_tasks()\nfor task in tasks:\n    print(Fore.CYAN + task + Style.RESET_ALL)",
+        "detail": "YangliDeng.assignment 3.assignment3",
+        "documentation": {}
+    },
+    {
+        "label": "add_task",
+        "kind": 2,
+        "importPath": "YangliDeng.assignment 3.task_utils",
+        "description": "YangliDeng.assignment 3.task_utils",
+        "peekOfCode": "def add_task(task):\n    with open(\"tasks.txt\", \"a\") as file:\n        time = datetime.now().strftime(\"%Y-%m-%d %H:%M\")\n        file.write(time + \" - \" + task + \"\\n\")\ndef read_tasks():\n    with open(\"tasks.txt\", \"r\") as file:\n        return file.readlines()",
+        "detail": "YangliDeng.assignment 3.task_utils",
+        "documentation": {}
+    },
+    {
+        "label": "read_tasks",
+        "kind": 2,
+        "importPath": "YangliDeng.assignment 3.task_utils",
+        "description": "YangliDeng.assignment 3.task_utils",
+        "peekOfCode": "def read_tasks():\n    with open(\"tasks.txt\", \"r\") as file:\n        return file.readlines()",
+        "detail": "YangliDeng.assignment 3.task_utils",
         "documentation": {}
     },
     {
