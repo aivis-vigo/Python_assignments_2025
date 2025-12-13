@@ -29,5 +29,5 @@ def main():
         print("Book was not found")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

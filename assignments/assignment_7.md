@@ -2,7 +2,7 @@
 
 Write a program(function) that takes students information
 
-Assign a series of grades to each stident
+Assign a series of grades to each student
 
 Calculate average
 
