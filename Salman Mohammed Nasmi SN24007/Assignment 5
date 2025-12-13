@@ -1,0 +1,111 @@
+# Salman Mohammed Nasmi
+# SN24007
+
+import numpy as np
+
+# ---------------- Task 1: Basic Arrays ----------------
+
+print("=== Task 1 ===")
+# One-dimensional array from 1 to 10
+vec = np.arange(1, 11)
+print("1D array:", vec)
+
+# 3x3 matrix
+square = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+print("2D array:\n", square)
+print("Shape of 2D array:", square.shape)
+
+# ---------------- Task 2: Reshaping ----------------
+
+print("\n=== Task 2 ===")
+# Create a 1D array with 12 elements
+arr_12 = np.arange(12)
+print("Original 1D (12 elements):", arr_12)
+
+# Reshape to 3 rows and 4 columns
+mat_3x4 = arr_12.reshape(3, 4)
+print("Reshaped into 3x4:\n", mat_3x4)
+
+# Reshape to 2 rows and 6 columns
+mat_2x6 = arr_12.reshape(2, 6)
+print("Reshaped into 2x6:\n", mat_2x6)
+
+# ---------------- Task 3: Operations Along Axes ----------------
+
+print("\n=== Task 3 ===")
+axis_demo = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+
+# Average of each column (axis 0)
+col_means = axis_demo.mean(axis=0)
+print("Column means:", col_means)
+
+# Sum of each row (axis 1)
+row_sums = axis_demo.sum(axis=1)
+print("Row sums:", row_sums)
+
+# ---------------- Task 4: Comparisons ----------------
+
+print("\n=== Task 4 ===")
+# Ten random integers between 0 and 99
+rand_vals = np.random.randint(0, 100, size=10)
+avg_val = rand_vals.mean()
+
+# Elements greater than the mean
+above_avg = rand_vals[rand_vals > avg_val]
+
+print("Random values:", rand_vals)
+print("Mean of values:", avg_val)
+print("Values above mean:", above_avg)
+
+# ---------------- Task 5: Boolean Masking ----------------
+
+print("\n=== Task 5 ===")
+rng = np.arange(21)
+
+evens = rng[rng % 2 == 0]
+multiples_of_three = rng[rng % 3 == 0]
+
+print("Even numbers:", evens)
+print("Multiples of 3:", multiples_of_three)
+
+# ---------------- Task 6: OOP + NumPy ----------------
+
+print("\n=== Task 6 ===")
+
+
+class MatrixTool:
+    def __init__(self, data):
+        self.data = data
+
+    def mean_by_row(self):
+        """Return the mean of each row."""
+        return self.data.mean(axis=1)
+
+    def above(self, cutoff):
+        """Return all elements strictly greater than cutoff."""
+        return self.data[self.data > cutoff]
+
+
+sample = np.array([[1, 2, 3], [4, 5, 6]])
+tool = MatrixTool(sample)
+
+print("Row means:", tool.mean_by_row())
+print("Elements > 3:", tool.above(3))
+
+# ---------------- Task 7: Thresholding ----------------
+
+print("\n=== Task 7 ===")
+rand_matrix = np.random.rand(5, 5)
+print("Original 5x5 random matrix:\n", rand_matrix)
+
+# Convert to binary matrix using threshold 0.5
+binary = np.where(rand_matrix < 0.5, 0, 1)
+print("Thresholded (binary) matrix:\n", binary)
