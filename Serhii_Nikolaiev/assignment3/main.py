@@ -5,6 +5,7 @@ import os
 FILE_NAME = "test.bin"
 MY_DATA = b"My data bytes"
 
+
 # Create new file
 def save_example():
     file = File(True, False)

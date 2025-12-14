@@ -44,7 +44,7 @@ class MagicBytes:
         use_crc32: bool
 
         assert (
-                len(magic_bytes) == MagicBytes.get_magic_bytes_length()
+            len(magic_bytes) == MagicBytes.get_magic_bytes_length()
         ), f"Magic bytes mismatch. Expected: {MagicBytes.get_magic_bytes_length()}, received: {len(magic_bytes)}"
 
         match magic_bytes[0:3]:
@@ -98,7 +98,7 @@ class File:
         self.bytes = bytes_
 
     @staticmethod
-    def from_file(file: Path) -> 'File':
+    def from_file(file: Path) -> "File":
         try:
             with open(file, "rb") as f:
                 data = f.read()
@@ -107,12 +107,12 @@ class File:
                         f"{file} is too small to contain valid magic bytes."
                     )
 
-                file_magic = data[:MagicBytes.get_magic_bytes_length()]
+                file_magic = data[: MagicBytes.get_magic_bytes_length()]
                 file_flags = MagicBytes.parse_magic_bytes(file_magic)
 
                 self = File(file_flags.use_lz4, file_flags.use_crc32)
 
-                self.add_bytes(data[MagicBytes.get_magic_bytes_length():])
+                self.add_bytes(data[MagicBytes.get_magic_bytes_length() :])
 
                 if self.file_flags.use_crc32:
                     crc32_ = self._exclude_crc32()
