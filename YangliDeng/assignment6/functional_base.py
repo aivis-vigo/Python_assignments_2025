@@ -6,7 +6,7 @@ def generate_full_name(first, last):
 def calculate_average(grades):
     return sum(grades) / len(grades)
 
-full_name = generate_full_name("Ivan", "Petrov")
+full_name = generate_full_name("Yangli", "Deng")
 print("Full name:", full_name)
 
 grades = [80, 90, 85]
