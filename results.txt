@@ -1,3 +1,0 @@
-Student Name: Yangli Deng
-Grades: [80, 85, 90]
-Average Grade: 85.00
