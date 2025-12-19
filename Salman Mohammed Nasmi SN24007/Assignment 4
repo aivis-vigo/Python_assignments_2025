@@ -1,0 +1,61 @@
+# Salman Mohammed Nasmi
+# SN24007
+
+import string
+import secrets
+
+
+def build_password(fname, lname, phone_number, n_digits=1, n_symbols=1):
+    """Create a password from name and phone details plus random chars."""
+    fname = fname.strip()
+    lname = lname.strip()
+    cleaned_phone = phone_number.replace(" ", "").replace("-", "")
+
+    # Basic validation of inputs
+    if len(fname) < 2 or len(lname) < 2 or len(cleaned_phone) < 4:
+        raise ValueError(
+            "First name, last name, and phone number must be long enough."
+        )
+
+    # Deterministic parts
+    part_first = fname[:2].upper()
+    part_last = lname[-2:].lower()
+    part_phone = cleaned_phone[-4:][::-1]
+
+    # Random numeric part
+    extra_numbers = "".join(secrets.choice(string.digits) for _ in range(n_digits))
+
+    # Random symbol part
+    extra_signs = "".join(secrets.choice(string.punctuation) for _ in range(n_symbols))
+
+    # Combine all components
+    pwd = part_first + part_last + part_phone + extra_numbers + extra_signs
+
+    # Ensure a minimum length of 8 characters
+    if len(pwd) < 8:
+        padding = 8 - len(pwd)
+        pwd += "".join(secrets.choice(string.digits) for _ in range(padding))
+
+    # Append generated password to a file
+    with open("passwords.txt", "a", encoding="utf-8") as f:
+        f.write(pwd + "\n")
+
+    return pwd
+
+
+if __name__ == "__main__":
+    first = input("First name: ")
+    last = input("Last name: ")
+    phone = input("Phone number: ")
+
+    try:
+        # Allow user to customize how many random chars to add
+        digits_count = int(input("Extra digits (press Enter for 1): ") or 1)
+        symbols_count = int(input("Extra symbols (press Enter for 1): ") or 1)
+    except ValueError:
+        print("Invalid number entered. Using 1 digit and 1 symbol.")
+        digits_count, symbols_count = 1, 1
+
+    generated = build_password(first, last, phone, digits_count, symbols_count)
+    print(f"Your new password is: {generated}")
+    print("It has been stored in 'passwords.txt'.")

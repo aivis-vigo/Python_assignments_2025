@@ -1,0 +1,100 @@
+# Salman Mohammed Nasmi sn24007
+# Assignment 1 (modified)
+
+keep_going = True
+
+while keep_going:
+
+    # Ask for user details
+    given_name = input("Enter your first name: ").strip()
+    print()
+    family_name = input("Enter your last name: ").strip()
+    print()
+
+    full_name = f"{given_name} {family_name}"
+    print(f"Nice to meet you, {full_name}. Here is some information about your name:")
+    print("=" * 50)
+
+    # Vowel and consonant counts for first name
+    vowel_chars = "aeiouAEIOU"
+    first_vowels = sum(1 for ch in given_name if ch in vowel_chars)
+    first_consonants = sum(1 for ch in given_name if ch.isalpha() and ch not in vowel_chars)
+
+    # Name lengths
+    first_len = len(given_name)
+    last_len = len(family_name)
+
+    print(f"Length of your first name: {first_len} characters")
+    print(f"Length of your last name: {last_len} characters")
+    print(f"Number of vowels in your first name: {first_vowels}")
+    print(f"Number of consonants in your first name: {first_consonants}")
+    print()
+
+    # Case variations
+    print(f"First name in UPPERCASE: {given_name.upper()}")
+    print(f"First name in lowercase: {given_name.lower()}")
+    print(f"First name in title case: {given_name.title()}")
+    print()
+
+    # Reverse last name
+    reversed_last = family_name[::-1]
+    print(f"Your last name reversed: {reversed_last}")
+    print()
+
+    # For-loop over first name
+    print("Characters in your first name (for loop):")
+    for index, letter in enumerate(given_name, start=1):
+        print(f"{index}: {letter}")
+    print()
+
+    # While-loop shrinking first name
+    print("Shrinking your first name one letter at a time (while loop):")
+    temp_name = given_name
+    while temp_name:
+        print(temp_name)
+        temp_name = temp_name[:-1]  # remove last character instead of first
+    print()
+
+    # Compare lengths of first and last names
+    if first_len > last_len:
+        print("Your first name is longer than your last name.")
+    elif first_len < last_len:
+        print("Your last name is longer than your first name.")
+    else:
+        print("Your first and last names are the same length.")
+    print()
+
+    # Create a simple password suggestion
+    # Uses first letter of first name, first letter of last name, and total length
+    total_length = first_len + last_len
+    password_suggestion = given_name[0].upper() + family_name[0].lower() + str(total_length)
+    print("Here is a simple password suggestion based on your name:", password_suggestion)
+    print()
+
+    # Work with a list built from the last name
+    last_as_list = list(family_name)
+
+    # Add markers at both ends
+    last_as_list.insert(0, "#")
+    last_as_list.append("!")
+
+    # If there are enough elements, replace the middle element with a special symbol
+    if len(last_as_list) >= 3:
+        middle_index = len(last_as_list) // 2
+        last_as_list[middle_index] = "_"
+
+    # Reverse the list
+    last_as_list.reverse()
+
+    print("Transformed last name list:")
+    print(last_as_list)
+    print()
+
+    # Ask if user wants to repeat
+    answer = input("Do you want to analyze another name? (y/n): ").strip().lower()
+    while answer not in ("y", "n"):
+        answer = input("Please enter 'y' to continue or 'n' to stop: ").strip().lower()
+
+    if answer == "n":
+        keep_going = False
+        print("Goodbye!")

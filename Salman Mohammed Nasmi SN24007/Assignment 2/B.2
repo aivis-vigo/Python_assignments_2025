@@ -1,0 +1,64 @@
+#Salman Mohammed Nasmi
+#SN24007
+
+import random
+
+def add_book(collection, book_id, details):
+    """Add a new book to the collection if the ID is not taken."""
+    if book_id in collection:
+        print(f"Book ID {book_id} is already in use.")
+    else:
+        collection[book_id] = details
+        title, author, year = details
+        print(f"Book added: '{title}' by {author} ({year}).")
+
+def search_title(collection, title_query):
+    """Look for books that match the given title exactly (case-insensitive)."""
+    found_any = False
+    for bid, info in collection.items():
+        title, author, year = info
+        if title.lower() == title_query.lower():
+            print(f"Match found -> ID: {bid} | '{title}' by {author} ({year})")
+            found_any = True
+    if not found_any:
+        print(f"No book with the title '{title_query}' was found.")
+
+def display_books(collection):
+    """Print all books currently stored in the collection."""
+    if not collection:
+        print("There are no books in the library yet.")
+        return
+
+    print("\nCurrent library contents:")
+    print("-" * 40)
+    for bid, info in collection.items():
+        title, author, year = info
+        print(f"ID: {bid} -> '{title}' by {author} ({year})")
+    print("-" * 40)
+
+def suggest_random(collection):
+    """Recommend a random book from the collection."""
+    if not collection:
+        print("The library is empty, no book to suggest.")
+        return
+
+    random_book = random.choice(list(collection.values()))
+    title, author, year = random_book
+    print(f"Suggestion: You could read '{title}' by {author} ({year}).")
+
+# Example usage (you can delete this part if your teacher wants only functions):
+
+if __name__ == "__main__":
+    library = {}
+
+    # Sample books to test
+    add_book(library, 101, ("1984", "George Orwell", 1949))
+    add_book(library, 102, ("Dune", "Frank Herbert", 1965))
+    add_book(library, 101, ("Duplicate Test", "Someone", 2000))  # will be rejected
+
+    display_books(library)
+
+    search_title(library, "1984")
+    search_title(library, "Unknown Title")
+
+    suggest_random(library)

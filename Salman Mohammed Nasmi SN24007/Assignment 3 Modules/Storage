@@ -1,0 +1,76 @@
+#Salman Mohammed Nasmi
+#SN24007
+
+import os
+from pathlib import Path
+
+# Base folder and text file for storing tasks
+STORE_DIR = Path("data")
+TASK_FILE = STORE_DIR / "tasks.txt"
+
+
+def make_storage_dir():
+    """Create the storage directory if needed."""
+    STORE_DIR.mkdir(exist_ok=True)
+
+
+def save_task(priority, description):
+    """Append a new task to the file and return its generated ID."""
+    make_storage_dir()
+    new_id = _next_task_id()
+    with open(TASK_FILE, "a", encoding="utf-8") as f:
+        f.write(f"{new_id}|{priority}|{description}|Pending\n")
+    return new_id
+
+
+def load_tasks():
+    """Load all tasks from disk into a list of dictionaries."""
+    make_storage_dir()
+    items = []
+    try:
+        with open(TASK_FILE, "r", encoding="utf-8") as f:
+            for line in f:
+                entry = line.strip()
+                if not entry:
+                    continue
+                tid, prio, text, status = entry.split("|", maxsplit=3)
+                items.append(
+                    {"id": tid, "priority": prio, "task": text, "status": status}
+                )
+    except FileNotFoundError:
+        # No file yet – just return empty list
+        pass
+    return items
+
+
+def remove_task(task_id):
+    """Delete a task with the given ID and rewrite the file."""
+    all_tasks = load_tasks()
+    remaining = [t for t in all_tasks if t["id"] != task_id]
+    _write_all(remaining)
+
+
+def complete_task(task_id):
+    """Mark a task as finished and rewrite the file."""
+    all_tasks = load_tasks()
+    for t in all_tasks:
+        if t["id"] == task_id:
+            t["status"] = "Done"
+    _write_all(all_tasks)
+
+
+def _write_all(tasks):
+    """Overwrite the task file with the provided list of task dicts."""
+    make_storage_dir()
+    with open(TASK_FILE, "w", encoding="utf-8") as f:
+        for t in tasks:
+            f.write(f"{t['id']}|{t['priority']}|{t['task']}|{t['status']}\n")
+
+
+def _next_task_id():
+    """Return the next available numeric ID as a string."""
+    tasks = load_tasks()
+    if not tasks:
+        return "1"
+    max_id = max(int(t["id"]) for t in tasks)
+    return str(max_id + 1)

@@ -1,0 +1,70 @@
+#  Salman Mohammed Nasmi
+#  SN24007
+
+from library_utils import display_books, search_title, add_book, suggest_random
+
+# sample book tuples
+book_a = ("1984", "George Orwell", 1949)
+book_b = ("To Kill a Mockingbird", "Harper Lee", 1960)
+book_c = ("The Great Gatsby", "F. Scott Fitzgerald", 1925)
+
+# set of genres (not used yet, but kept as in the original idea)
+genres = {"Fiction", "Classic", "Literature"}
+
+# dictionary holding all books
+catalog = {
+    10: book_a,
+    20: book_b,
+    30: book_c
+}
+
+error_count = 0
+print("\nWelcome to the Library System!")
+
+def show_menu():
+    print("\nPlease choose an option:")
+    print("1) List all books")
+    print("2) Find a book by title")
+    print("3) Add a new book")
+    print("4) Get a random suggestion")
+    print("5) Quit")
+
+while True:
+    show_menu()
+    choice = input("Enter a number from 1 to 5: ").strip()
+
+    if choice == "1":
+        display_books(catalog)
+        error_count = 0
+
+    elif choice == "2":
+        title_query = input("Enter the title to look for: ").strip()
+        search_title(catalog, title_query)
+        error_count = 0
+
+    elif choice == "3":
+        try:
+            new_key = int(input("Enter a new numeric book ID: ").strip())
+            title = input("Book title: ").strip()
+            author = input("Author name: ").strip()
+            year = int(input("Publication year: ").strip())
+            new_book = (title, author, year)
+            add_book(catalog, new_key, new_book)
+        except ValueError:
+            print("Invalid number entered for ID or year. Please try again.")
+        error_count = 0
+
+    elif choice == "4":
+        suggest_random(catalog)
+        error_count = 0
+
+    elif choice == "5":
+        print("Exiting program. Goodbye!")
+        break
+
+    else:
+        print("Invalid selection. Please choose a number between 1 and 5.")
+        error_count += 1
+        if error_count >= 5:
+            print("Too many invalid attempts. Program will close now.")
+            break

@@ -1,0 +1,50 @@
+# Salman Mohammed Nasmi
+# SN24007
+
+scores = []
+
+
+def read_name(message):
+    """Ask for a full name and trim spaces."""
+    return input(message).strip()
+
+
+def record_score(value):
+    """Store a single numeric score."""
+    scores.append(value)
+
+
+def average_score():
+    """Return the arithmetic mean of all stored scores."""
+    return sum(scores) / len(scores) if scores else 0.0
+
+
+# Get identities
+teacher_name = read_name("Type your full name: ")
+learner_name = read_name("Type the student's full name: ")
+
+# Prevent self‑grading
+if teacher_name.lower() == learner_name.lower():
+    print("Access blocked: you cannot enter grades for yourself.")
+    raise SystemExit
+
+print(f"Welcome! You can now record marks for {learner_name}.")
+
+while True:
+    entry = input("Enter a grade (or 'done' to finish): ").strip()
+
+    if entry.lower() == "done":
+        break
+
+    try:
+        mark = float(entry)
+        if 0 <= mark <= 100:
+            record_score(mark)
+        else:
+            print("Grade must be between 0 and 100.")
+    except ValueError:
+        print("Please type a number or 'done'.")
+
+print(f"\nStudent: {learner_name}")
+print(f"All grades: {scores}")
+print(f"Average: {average_score():.2f}")

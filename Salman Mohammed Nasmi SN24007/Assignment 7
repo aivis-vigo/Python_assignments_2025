@@ -1,0 +1,39 @@
+# Salman Mohammed Nasmi
+# SN24007
+def ask_name(message):
+    """Read and clean up a full name."""
+    return input(message).strip()
+
+
+def collect_marks():
+    """Interactively read marks for one learner."""
+    marks = []
+    while True:
+        raw = input("Enter a grade (or 'done' to stop): ").strip()
+        if raw.lower() == "done":
+            break
+        try:
+            value = float(raw)
+            if 0 <= value <= 100:
+                marks.append(value)
+            else:
+                print("Grade must be between 0 and 100.")
+        except ValueError:
+            print("Please enter a number between 0 and 100 or 'done'.")
+    return marks
+
+
+def mean_mark(marks):
+    """Return the average mark, or 0 if none were entered."""
+    return sum(marks) / len(marks) if marks else 0.0
+
+
+def write_report(records, filename="student_results.txt"):
+    """Write all student summaries to a text file."""
+    with open(filename, "w", encoding="utf-8") as fh:
+        for record in records:
+            name = record["name"]
+            scores = record["marks"]
+            avg = record["average"]
+            score_line = ", ".join(f"{m:.2f}" for m in scores)
+            fh
